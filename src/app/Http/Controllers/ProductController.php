@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Пример массива товаров
         $products = [
@@ -14,7 +14,7 @@ class ProductController extends Controller
             ['title' => 'banana', 'color' => 'yellow'],
             ['title' => 'grape', 'color' => 'purple'],
         ];
-        if ($request->header('Accept') !== '*/*' || $request->header('Connection') !== 'keep-alive') {
+        if ($request->header('Accept') !== '/' || $request->header('Connection') !== 'keep-alive') {
             return response()->json(['message' => 'Invalid headers'], 400);
         }
 
